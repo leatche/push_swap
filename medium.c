@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ltcherep <ltcherep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:22:06 by tcherepoff        #+#    #+#             */
-/*   Updated: 2024/12/26 15:15:46 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2024/12/29 12:10:46 by ltcherep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,19 @@ void ft_medium(t_stack **stack_a, t_stack **stack_b, int size)
 }
 
 void ft_medium(t_stack **stack_a, t_stack **stack_b)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 1;
+	ft_pb(stack_a, stack_b); // Déplacer l'élément à trier dans b
+	while (stack_a[i] < stack_a[j])
+		j++;
+	if (stack_a[i] > stack_a[j])
+	{
+		if (stack_a[j])
+	}
+}
+
+void ft_small();//renvoie l'indice du plus petit de la chaine
