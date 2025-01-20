@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 12:50:12 by tcherepoff        #+#    #+#             */
-/*   Updated: 2024/11/28 00:54:50 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/01/06 22:03:51 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <limits.h>
 
 typedef struct s_list
 {

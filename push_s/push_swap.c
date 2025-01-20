@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:51:20 by tcherepoff        #+#    #+#             */
-/*   Updated: 2024/12/18 10:24:50 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/01/09 19:14:26 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,13 @@ void sorted_insert(t_box **sorted, t_box *new_node) {
 		new_node->next = tmp->next;
 		tmp->next = new_node;
 	}
+}
+
+int	push_swap(int argc, char **argv)
+{
+	char	*new;
+
+	if (argc == 1)
+		exit(1);
+	new = malloc(sizeof());
 }
