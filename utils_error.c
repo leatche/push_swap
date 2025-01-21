@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   utils_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltcherep <ltcherep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 08:51:20 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/01/21 01:43:57 by ltcherep         ###   ########.fr       */
+/*   Created: 2025/01/21 02:05:54 by ltcherep          #+#    #+#             */
+/*   Updated: 2025/01/21 02:06:28 by ltcherep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft.h"
 
-t_stack	ft_type_sort(t_stack **stack_a)
+int	sign(int c)
 {
-	int		size;
-	t_stack	**stack;
+	if (c == '+' || c == '-')
+		return (1);
+	return (0);
+}
 
-	size = 0;
-	if (!stack || *stack == NULL)
-		return ;
-	size = ft_lstsize(stack_a);
-	if (size < 2)
-		return (**stack_a);
-	if (size > 1 && size < 5)
-		stack = ft_by_insertion(stack_a, size);
-	if (size > 4 && size < 51)
-		stack = ft_medium(stack_a, size)
+int	digit(int c)
+{
+	if ((c >= 48) && (c <= 57))
+		return (1);
+	return (0);
+}
 
+int	space(int c)
+{
+	if (c == ' ')
+		return (1);
+	return (0);
 }

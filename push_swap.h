@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ltcherep <ltcherep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:52:14 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/01/20 17:15:20 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/01/21 02:13:13 by ltcherep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,19 @@ typedef struct t_stack {
 	struct t_stack *next;
 }				 t_stack;
 
-static t_stack *ft_create_list(int argc, char **argv);
-int			ft_create_element(int nbr, t_stack **new_element);
-int			ft_add_new_element(int nbr, t_stack **stack_tmp);
-// static int	initialize_stack(t_stack **stack_a, t_stack **stack_b, char **tab);
-int			ft_check_duplicate(t_stack *stack_a);
+static t_stack	*ft_create_list(int argc, char **argv);
+int				ft_create_element(int nbr, t_stack **new_element);
+int				ft_add_new_element(int nbr, t_stack **stack_tmp);
+void			free_stack(t_stack *stack);
+
+void			ft_error(void);
+void			ft_letter(char **argv);
+int				ft_check_bad_position(char **argv, int i, int j);
+int				ft_check_letter_bad_position(char **argv);
+int				ft_check_duplicate(t_stack *stack_a);
+
+int				sign(int c);
+int				digit(int c);
+int				space(int c);
+
 #endif

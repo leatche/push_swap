@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+         #
+#    By: ltcherep <ltcherep@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/12 08:50:30 by tcherepoff        #+#    #+#              #
-#    Updated: 2025/01/19 20:09:27 by tcherepoff       ###   ########.fr        #
+#    Updated: 2025/01/21 02:15:35 by ltcherep         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap.a
-SRCS = checker.c 	push_swap.c		parsing.c
+SRCS = checker.c		push_swap.c		parsing.c		type_error.c		utils_error.c
 
 OBJS = $(SRCS:.c=.o)
 FLAG = -Wall -Werror -Wextra -Ilibft
@@ -35,7 +35,7 @@ clean:
 fclean:		clean
 			$(MAKE) fclean -C ./libft
 			$(RM) $(NAME)
-			
+
 
 re:			fclean all
 
