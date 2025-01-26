@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 02:34:46 by ltcherep          #+#    #+#             */
-/*   Updated: 2025/01/26 19:56:16 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/01/26 19:58:01 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,8 @@
 //////////////////////////////////////NEXT TIME∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕/////////
 /*
 - mon algo pour 5 peut faire 13 coups
-*/
-
-
-
-/*
-- attention si on veut partir de la fin pour touver un nombre tanpis, fait chier
-	prendre en compte une fonction où on peux bouger tous les deux en meme temps donc economie ( stack a et b en meme temps, regarder si les deux sont en 
-	haut du milmieu ( destination et source ) alors le mouvement dans la stack_a est annulé de la proportion egale. )
-- commence a creer le nom pour > 5
+- faire le where top et le where bottom
+- tester si tous on pris en compte que b du plus grand au plus petit
 */
 
 t_stack *ft_push_swap(int argc, char **argv)
