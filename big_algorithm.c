@@ -3,14 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   big_algorithm.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ltcherep <ltcherep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 16:20:35 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/01/26 19:55:43 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/01/27 04:49:29 by ltcherep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*
+- ft par 5
+- ft_now_push_it
+- tester chacune des fonctions une par une
+*/
 
 void	ft_big_algorithm(t_stack *stack_a, t_stack *stack_b)
 {
@@ -24,7 +30,7 @@ void	ft_big_algorithm(t_stack *stack_a, t_stack *stack_b)
 	while (ft_strlen_stack(stack_a) != 3)
 	{
 		index = ft_tester_each(stack_a, stack_b);
-		
+		ft_now_push_it(index, stack_a, stack_b);
 	}
 }
 int	ft_valid_number(t_stack *tmp, t_stack *stack_a, t_stack *stack_b, int middle)
@@ -48,7 +54,7 @@ int	ft_tester_each(t_stack *stack_a, t_stack *stack_b)
 	int		count_move;
 	int		count_move_new;
 	int		good_index;
-	
+
 	tmp = stack_a;
 	count_move = 100;
 	while (count_move = 100 || tmp != stack_a)
@@ -63,8 +69,13 @@ int	ft_tester_each(t_stack *stack_a, t_stack *stack_b)
 		{
 			count_move = count_move_new;
 			good_index = ft_get_index(tmp, stack_a);
-		}	
+		}
 		tmp = tmp->next;
 	}
 	return (good_index);
+}
+
+void	ft_now_push_it(int index, t_stack *stack_a, t_stack *stack_b)
+{
+
 }
