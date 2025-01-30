@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltcherep <ltcherep@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:52:14 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/01/21 02:13:13 by ltcherep         ###   ########.fr       */
+/*   Updated: 2025/01/29 01:32:44 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <limits.h>
 
 typedef struct t_stack {
 	int				content;

@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:51:05 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/01/25 16:08:41 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/01/30 20:12:24 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,36 +50,65 @@ void	ft_three_number(t_stack *stack_a)
 		ft_sa(stack_a);
 }
 
+
 void	ft_five_number(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack	*tmp;
-	int		count;
+	t_stack	*min;
+	t_stack	*little;
 
 	tmp = stack_a;
-	while (ft_strlen_stack(stack_a) != 3)
-		ft_pb(stack_a, stack_b);
-	ft_three_number(stack_a);
-	ft_two_number(stack_b);
-	while (stack_b != NULL)
+	min = ft_min(stack_a);
+	little = ft_little(stack_a, min);
+	while (ft_strlen_stack(stack_b) != 2)
 	{
-		count = ft_search_more(stack_a, stack_b);
-		if (count == 0)
+		if (tmp == min || tmp == little)
 			ft_pb(stack_b, stack_a);
-		else if (count == 1)
+		else if (tmp->next == min || tmp->next == little)
 		{
-			ft_pb(stack_b, stack_a);
 			ft_sa(stack_a);
-		}
-		else if (count == 2 && ft_strlen_stack(stack_b) == 2)
-		{
-			ft_rra(stack_a, stack_b);
-			ft_pb(stack_b);
+			ft_pb(stack_b, stack_a);
 		}
 		else
-			ft_pb(stack_b);
-			ft_ra(stack_a);
-		ft_ra(stack_a);
-		while (is_minimum(stack_a) == -1)
 			ft_rra(stack_a);
 	}
+	ft_three_number(stack_a);
+	ft_two_number(stack_b);
+	ft_pa(stack_a, stack_b);
+	ft_pa(stack_a, stack_b);
+}
+
+t_stack	*ft_min(t_stack *stack_a)
+{
+	t_stack	*tmp;
+	t_stack	*min;
+
+	tmp = stack_a->next;
+	min->content = stack_a->content;
+	while (tmp != stack_a)
+	{
+		if (tmp->content < min->content)
+			min->content = tmp->content;
+		tmp = tmp->next;
+	}
+	return (min);
+}
+
+t_stack	*ft_little(t_stack *stack_a, t_stack *min)
+{
+	t_stack	*tmp;
+	t_stack	*little;
+
+	tmp = stack_a->next;
+	if (stack_a->content == min->content)
+		little->content = stack_a->next->content;
+	else
+		little->content = stack_a->content;
+	while (tmp != stack_a)
+	{
+		if (tmp->content != min->content && tmp->content < little->content)
+			min->content = tmp->content;
+		tmp = tmp->next;
+	}
+	return (little);
 }
