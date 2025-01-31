@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 16:20:35 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/01/30 23:49:31 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/01/31 14:22:49 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,4 +226,19 @@ int	ft_sorted_b(t_stack *stack_b)
 		tmp = tmp->next;
 	}
 	return (1);
+}
+
+void	ft_put_it_back(t_stack *stack_b)
+{
+	t_stack	*tmp;
+	int		time;
+
+	tmp = stack_b->next;
+	time = 0;
+	while (tmp && tmp->content < tmp->prev->content)
+	{
+		tmp = tmp->next;
+		time++;
+	}
+	
 }

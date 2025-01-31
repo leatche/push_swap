@@ -6,12 +6,24 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 02:34:46 by ltcherep          #+#    #+#             */
-/*   Updated: 2025/01/30 20:15:18 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/01/31 15:38:17 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
+
+
+	int		size;
+	t_stack	**stack;
+
+	size = 0;
+	if (!stack || *stack == NULL)
+		return ;
+	size = ft_lstsize(stack_a);
+	if (size < 2)
+		return (**stack_a);
+
 
 
 t_stack *ft_push_swap(int argc, char **argv)
@@ -24,9 +36,9 @@ t_stack *ft_push_swap(int argc, char **argv)
 	if (ft_strlen_stack(stack_a) == 1)
 		return (stack_a);
 	else if (ft_strlen_stack(stack_a) == 2)
-		stack_a = ft_two_number(stack_a);
+		ft_two_number(stack_a);
 	else if (ft_strlen_stack(stack_a) == 3)
-		ft_three_number(stack_a, stack_b);
+		ft_three_number(stack_a);
 	else if (ft_strlen_stack(stack_a) == 4 || ft_strlen_stack(stack_a) == 5)
 		ft_five_number(stack_a, stack_b);
 	else
@@ -137,8 +149,6 @@ int	ft_strlen_stack(t_stack *stack)
 	}
 	return (i);
 }
-
-
 
 int	ft_middle(t_stack *stack)
 {
