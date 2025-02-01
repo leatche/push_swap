@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 16:20:35 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/01/31 14:22:49 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/01 15:15:31 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,9 +155,9 @@ void	ft_special_top_top(t_stack *tmp, t_stack *stack_a, t_stack *stack_b)
 	while (win-- > 0)
 		ft_rr(stack_a, stack_b);
 	while (count-- > 0)
-			ft_rb(stack_b, stack_a);
+			ft_rb(stack_b);
 	while (index-- > 0)
-			ft_ra(stack_a, stack_b);
+			ft_ra(stack_a);
 	ft_pb(stack_b, stack_a);
 }
 
@@ -170,9 +170,9 @@ void	ft_special_top_bottom(t_stack *tmp, t_stack *stack_a, t_stack *stack_b)
 	count = ft_strlen_stack(stack_b) - ft_search_less(tmp, stack_b) + 1;
 	index = ft_get_index(tmp, stack_a) - 1;
 	while (count-- > 0)
-		ft_rrb(stack_b, stack_a);
+		ft_rrb(stack_b);
 	while (index-- > 0)
-			ft_ra(stack_a, stack_b);
+			ft_ra(stack_a);
 	ft_pb(stack_b, stack_a);
 }
 
@@ -185,9 +185,9 @@ void	ft_special_bottom_top(t_stack *tmp, t_stack *stack_a, t_stack *stack_b)
 	count = ft_search_less(tmp, stack_b);
 	index = ft_strlen_stack(stack_a) - ft_get_index(tmp, stack_a);
 	while (count-- > 0)
-		ft_rb(stack_b, stack_a);
+		ft_rb(stack_b);
 	while (index-- > 0)
-		ft_rra(stack_a, stack_b);
+		ft_rra(stack_a);
 	ft_pb(stack_b, stack_a);
 }
 
@@ -206,9 +206,9 @@ void	ft_special_bottom_bottom(t_stack *tmp, t_stack *stack_a, t_stack *stack_b)
 	while (win-- > 0)
 		ft_rrr(stack_a, stack_b);
 	while (count-- > 0)
-			ft_rrb(stack_b, stack_a);
+			ft_rrb(stack_b);
 	while (index-- > 0)
-			ft_rra(stack_a, stack_b);
+			ft_rra(stack_a);
 	ft_pb(stack_b, stack_a);
 }
 

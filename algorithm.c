@@ -6,34 +6,39 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 02:34:46 by ltcherep          #+#    #+#             */
-/*   Updated: 2025/01/31 15:38:17 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/01 15:34:24 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-
-	int		size;
-	t_stack	**stack;
-
-	size = 0;
-	if (!stack || *stack == NULL)
-		return ;
-	size = ft_lstsize(stack_a);
-	if (size < 2)
-		return (**stack_a);
-
-
-
-t_stack *ft_push_swap(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
 	stack_a = ft_create_list(argc, argv);
 	stack_b = NULL;
-	if (ft_strlen_stack(stack_a) == 1)
+	if (!stack_a)
+	{
+		write(2, "Error\n", 6);
+		return (-1);
+	}
+	stack_a = ft_executate(stack_a, stack_b);
+	if (ft_sorted_a(stack_a) == -1)
+	{
+		write(2, "la chaine n'est pas trié\n", 27);
+		return (-1);
+	}
+	free(stack_b);
+	ft_free_pile(stack_a);
+	return (0);
+}
+
+t_stack *ft_executate(t_stack *stack_a, t_stack *stack_b)
+{
+	if (ft_strlen_stack(stack_a) == 1 || ft_strlen_stack(stack_a) == 0)
 		return (stack_a);
 	else if (ft_strlen_stack(stack_a) == 2)
 		ft_two_number(stack_a);
@@ -216,4 +221,9 @@ int	ft_get_index(t_stack *tmp, t_stack *stack_a)
 		count++;
 	}
 	return (count);
+}
+
+int	ft_sorted_a(t_stack *stack_a)
+{
+	
 }
