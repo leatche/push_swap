@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 16:20:35 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/01 19:39:25 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/01 19:45:51 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_valid_number(t_stack *tmp, t_stack *stack_a, t_stack *stack_b,
 	if (indice <= middle && indice <= (count_stack_b + 1))
 		return (1);
 	else if (indice > middle && indice > (ft_strlen_stack(stack_a)
-	- count_stack_b + 1))
+			- count_stack_b + 1))
 		return (2);
 	else
 		return (-1);
@@ -53,16 +53,16 @@ int	ft_tester_each(t_stack *stack_a, t_stack *stack_b)
 	int		count_move;
 	int		count_move_new;
 	int		good_index;
-	int		isValid;
+	int		isvalid;
 
 	tmp = stack_a;
 	count_move = INT_MAX;
 	while (count_move == INT_MAX || tmp != stack_a)
 	{
-		isValid = ft_valid_number(tmp, stack_a, stack_b, ft_middle(stack_a));
-		if (isValid == 1)
+		isvalid = ft_valid_number(tmp, stack_a, stack_b, ft_middle(stack_a));
+		if (isvalid == 1)
 			count_move_new = ft_where_top(tmp, stack_a, stack_b);
-		else if (isValid == 2)
+		else if (isvalid == 2)
 			count_move_new = ft_where_bottom(tmp, stack_a, stack_b);
 		if (count_move_new < count_move)
 		{
@@ -101,7 +101,7 @@ void	ft_place(t_stack *tmp, t_stack *stack_a, t_stack *stack_b, int middle)
 	else
 	{
 		if (ft_bottom(tmp, stack_a, stack_b) == 1)
-			ft_special_bottom_top;
+			ft_special_bottom_top(tmp, stack_a, stack_b);
 		else
 			ft_special_bottom_bottom(tmp, stack_a, stack_b);
 	}
@@ -110,7 +110,7 @@ void	ft_place(t_stack *tmp, t_stack *stack_a, t_stack *stack_b, int middle)
 int	ft_top(t_stack *number_chose, t_stack *stack_a, t_stack *stack_b)
 {
 	int	count_top;
-	int count_bottom;
+	int	count_bottom;
 
 	count_top = ft_count_top_of_top(number_chose, stack_a, stack_b);
 	count_bottom = ft_count_bottom_of_top(number_chose, stack_a, stack_b);
@@ -123,7 +123,7 @@ int	ft_top(t_stack *number_chose, t_stack *stack_a, t_stack *stack_b)
 int	ft_bottom(t_stack *number_chose, t_stack *stack_a, t_stack *stack_b)
 {
 	int	count_top;
-	int count_bottom;
+	int	count_bottom;
 
 	count_top = ft_count_top_of_bottom(number_chose, stack_a, stack_b);
 	count_bottom = ft_count_bottom_of_bottom(number_chose, stack_a, stack_b);
@@ -134,7 +134,6 @@ int	ft_bottom(t_stack *number_chose, t_stack *stack_a, t_stack *stack_b)
 }
 
 /////////////////// UTILS A PLACE //////////////////////////////////////////
-
 void	ft_special_top_top(t_stack *tmp, t_stack *stack_a, t_stack *stack_b)
 {
 	int	count;
@@ -145,16 +144,15 @@ void	ft_special_top_top(t_stack *tmp, t_stack *stack_a, t_stack *stack_b)
 	index = ft_get_index(tmp, stack_a) - 1;
 	win = 0;
 	while (count-- > 0 && index-- > 0)
-			win++;
+		win++;
 	while (win-- > 0)
 		ft_rr(stack_a, stack_b);
 	while (count-- > 0)
-			ft_rb(stack_b);
+		ft_rb(stack_b);
 	while (index-- > 0)
-			ft_ra(stack_a);
+		ft_ra(stack_a);
 	ft_pb(stack_b, stack_a);
 }
-
 
 void	ft_special_top_bottom(t_stack *tmp, t_stack *stack_a, t_stack *stack_b)
 {
@@ -166,10 +164,9 @@ void	ft_special_top_bottom(t_stack *tmp, t_stack *stack_a, t_stack *stack_b)
 	while (count-- > 0)
 		ft_rrb(stack_b);
 	while (index-- > 0)
-			ft_ra(stack_a);
+		ft_ra(stack_a);
 	ft_pb(stack_b, stack_a);
 }
-
 
 void	ft_special_bottom_top(t_stack *tmp, t_stack *stack_a, t_stack *stack_b)
 {
@@ -185,7 +182,6 @@ void	ft_special_bottom_top(t_stack *tmp, t_stack *stack_a, t_stack *stack_b)
 	ft_pb(stack_b, stack_a);
 }
 
-
 void	ft_special_bottom_bottom(t_stack *tmp, t_stack *stack_a,
 		t_stack *stack_b)
 {
@@ -197,16 +193,15 @@ void	ft_special_bottom_bottom(t_stack *tmp, t_stack *stack_a,
 	index = ft_strlen_stack(stack_a) - ft_get_index(tmp, stack_a) + 1;
 	win = 0;
 	while (count-- > 0 && index-- > 0)
-			win++;
+		win++;
 	while (win-- > 0)
 		ft_rrr(stack_a, stack_b);
 	while (count-- > 0)
-			ft_rrb(stack_b);
+		ft_rrb(stack_b);
 	while (index-- > 0)
-			ft_rra(stack_a);
+		ft_rra(stack_a);
 	ft_pb(stack_b, stack_a);
 }
-
 ///////////////////////////////// UTILS ////////////////////////////////////
 
 int	ft_sorted_b(t_stack *stack_b)
@@ -235,5 +230,4 @@ void	ft_put_it_back(t_stack *stack_b)
 		tmp = tmp->next;
 		time++;
 	}
-	
 }

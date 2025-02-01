@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:51:05 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/01 18:39:24 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/01 20:13:37 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_two_number(t_stack *stack_a)
 	if (tmp->next < tmp)
 		ft_sa(stack_a);
 }
+
 void	ft_three_number(t_stack *stack_a)
 {
 	t_stack	*tmp;
@@ -62,7 +63,8 @@ void	ft_four_number(t_stack *stack_a, t_stack *stack_b)
 		return ;
 	else if (is_minimum(tmp, stack_a) == 1)
 		ft_ra(stack_a);
-	else if ((tmp->content < tmp->next->content) && (tmp->content > tmp->prev->content))
+	else if ((tmp->content < tmp->next->content) && (tmp->content
+			> tmp->prev->content))
 		ft_sa(stack_a);
 	else
 	{
@@ -71,7 +73,6 @@ void	ft_four_number(t_stack *stack_a, t_stack *stack_b)
 		ft_sa(stack_a);
 		ft_rra(stack_a);
 	}
-	
 }
 
 void	ft_five_number(t_stack *stack_a, t_stack *stack_b)

@@ -6,14 +6,14 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 02:34:46 by ltcherep          #+#    #+#             */
-/*   Updated: 2025/02/01 19:07:37 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/01 21:05:18 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
@@ -32,11 +32,11 @@ int main(int argc, char **argv)
 		return (-1);
 	}
 	free(stack_b);
-	ft_free_pile(stack_a);
+	free_stack(stack_a);
 	return (0);
 }
 
-t_stack *ft_executate(t_stack *stack_a, t_stack *stack_b)
+t_stack	*ft_executate(t_stack *stack_a, t_stack *stack_b)
 {
 	if (ft_strlen_stack(stack_a) == 1 || ft_strlen_stack(stack_a) == 0)
 		return (stack_a);
@@ -192,23 +192,45 @@ int ft_search_less(t_stack *number_chose, t_stack *stack_b)
 }
 int	is_minimum(t_stack *actual_number, t_stack	*where)
 {
+	t_stack	*tmp;
+	int		count;
+	int		diff;
 
+	count = actual_number->content;
+	tmp = where->prev;
+	while (tmp && tmp != where)
+	{
+		diff = tmp->content;
+		if (diff < count)
+			return (-1);
+		tmp = tmp->prev;
+	}
+	diff = tmp->content;
+	if (diff < count)
+		return (-1);
+	return (1);
 }
+
 int	is_maximum(t_stack *actual_number, t_stack	*where)
 {
+	t_stack	*tmp;
+	int		count;
+	int		diff;
 
+	count = actual_number->content;
+	tmp = where;
+	while (tmp && tmp != where->prev)
+	{
+		diff = tmp->content;
+		if (diff > count)
+			return (-1);
+		tmp = tmp->next;
+	}
+	diff = tmp->content;
+	if (diff > count)
+		return (-1);
+	return (1);
 }
-
-int	get_minimum(t_stack *actual_number, t_stack	*where)
-{
-
-}
-
-int get_maximum(t_stack *actual_number, t_stack	*where)
-{
-
-}
-
 
 int	ft_get_index(t_stack *tmp, t_stack *stack_a)
 {
