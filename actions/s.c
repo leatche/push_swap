@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:23:21 by tcherepoff        #+#    #+#             */
-/*   Updated: 2024/12/17 17:24:23 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/01 19:18:42 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_s(t_stack **stack)
 	second->next = first;
 	*stack = second;
 }
+
 void	ft_sa(t_stack **stack_a)
 {
 	ft_s(stack_a);

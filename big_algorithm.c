@@ -6,18 +6,11 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 16:20:35 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/01 15:15:31 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/01 19:39:25 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*
-- tester chacune des fonctions une par une
-- changer pour que b ne soit pas retrié a chaque fois
-- regarder que dans le calcul du count l faite de devoir parcourir dans les deux sens la chaine pour le plus grand ne soit pas
-un probleme
-*/
 
 void	ft_big_algorithm(t_stack *stack_a, t_stack *stack_b)
 {
@@ -35,10 +28,10 @@ void	ft_big_algorithm(t_stack *stack_a, t_stack *stack_b)
 	ft_three_number(stack_a);
 	if (ft_sorted_b(stack_b) == -1)
 		ft_put_it_back(stack_b);
-	while ()
 }
 
-int	ft_valid_number(t_stack *tmp, t_stack *stack_a, t_stack *stack_b, int middle)
+int	ft_valid_number(t_stack *tmp, t_stack *stack_a, t_stack *stack_b,
+	int middle)
 {
 	int	count_stack_b;
 	int	indice;
@@ -47,7 +40,8 @@ int	ft_valid_number(t_stack *tmp, t_stack *stack_a, t_stack *stack_b, int middle
 	indice = ft_get_indice(stack_a, tmp);
 	if (indice <= middle && indice <= (count_stack_b + 1))
 		return (1);
-	else if (indice > middle && indice > (ft_strlen_stack(stack_a) - count_stack_b + 1))
+	else if (indice > middle && indice > (ft_strlen_stack(stack_a)
+	- count_stack_b + 1))
 		return (2);
 	else
 		return (-1);
@@ -139,7 +133,7 @@ int	ft_bottom(t_stack *number_chose, t_stack *stack_a, t_stack *stack_b)
 		return (2);
 }
 
-/////////////////// UTILS A PLACE ///////////////////////////////////////////////////////
+/////////////////// UTILS A PLACE //////////////////////////////////////////
 
 void	ft_special_top_top(t_stack *tmp, t_stack *stack_a, t_stack *stack_b)
 {
@@ -192,7 +186,8 @@ void	ft_special_bottom_top(t_stack *tmp, t_stack *stack_a, t_stack *stack_b)
 }
 
 
-void	ft_special_bottom_bottom(t_stack *tmp, t_stack *stack_a, t_stack *stack_b)
+void	ft_special_bottom_bottom(t_stack *tmp, t_stack *stack_a,
+		t_stack *stack_b)
 {
 	int	count;
 	int	index;
@@ -212,7 +207,7 @@ void	ft_special_bottom_bottom(t_stack *tmp, t_stack *stack_a, t_stack *stack_b)
 	ft_pb(stack_b, stack_a);
 }
 
-///////////////////////////////// UTILS //////////////////////////////////////////////////////////////////
+///////////////////////////////// UTILS ////////////////////////////////////
 
 int	ft_sorted_b(t_stack *stack_b)
 {

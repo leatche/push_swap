@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   type_error.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltcherep <ltcherep@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 02:00:29 by ltcherep          #+#    #+#             */
-/*   Updated: 2025/01/21 02:07:46 by ltcherep         ###   ########.fr       */
+/*   Updated: 2025/02/01 19:19:17 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
-
 
 void	ft_error(void)
 {
@@ -74,7 +73,6 @@ int	ft_check_letter_bad_position(char **argv)
 		return (-1);
 	return (0);
 }
-
 
 int	ft_check_duplicate(t_stack *stack_a)
 {

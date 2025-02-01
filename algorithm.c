@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 02:34:46 by ltcherep          #+#    #+#             */
-/*   Updated: 2025/02/01 15:34:24 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/01 19:07:37 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ t_stack *ft_executate(t_stack *stack_a, t_stack *stack_b)
 		ft_two_number(stack_a);
 	else if (ft_strlen_stack(stack_a) == 3)
 		ft_three_number(stack_a);
-	else if (ft_strlen_stack(stack_a) == 4 || ft_strlen_stack(stack_a) == 5)
+	else if (ft_strlen_stack(stack_a) == 4)
+		ft_four_number(stack_a, stack_b);
+	else if (ft_strlen_stack(stack_a) == 5)
 		ft_five_number(stack_a, stack_b);
 	else
 		ft_big_algorithm(stack_a, stack_b);

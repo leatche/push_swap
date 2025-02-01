@@ -3,23 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltcherep <ltcherep@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 14:13:39 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/01/21 02:10:28 by ltcherep         ###   ########.fr       */
+/*   Updated: 2025/02/01 19:30:30 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-static t_stack *ft_create_list(int argc, char **argv)
+static t_stack	*ft_create_list(int argc, char **argv)
 {
-	t_stack	*list = NULL;
+	t_stack	*list;
 	char	**new;
 	int		i;
 	int		j;
 
+	list = NULL;
 	if (argc <= 1)
 		ft_error();
 	i = 1;
@@ -73,27 +74,7 @@ int	ft_add_new_element(int nbr, t_stack **stack_tmp)
 	return (1);
 }
 
-/*
-void	print_stack(t_stack *head)
-{
-	t_stack	*current;
-
-	if (head == NULL)
-	{
-		printf("head est null");
-		return ;
-	}
-	current = head;
-	while (current->next != head)
-	{
-		printf("[%d] ", current->content);
-		current = current->next;
-	}
-	printf("[%d]\n", current->content);
-}
-*/
-
-void free_stack(t_stack *stack)
+void	free_stack(t_stack *stack)
 {
 	t_stack	*current;
 	t_stack	*tmp;
@@ -113,7 +94,7 @@ void free_stack(t_stack *stack)
 
 int	main(int argc, char **argv)
 {
-	t_stack *stack_a;
+	t_stack	*stack_a;
 
 	stack_a = NULL;
 	stack_a = ft_create_list(argc, argv);

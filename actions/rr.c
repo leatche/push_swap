@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execution.c                                        :+:      :+:    :+:   */
+/*   rr.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 17:41:16 by tcherepoff        #+#    #+#             */
-/*   Updated: 2024/12/17 17:26:08 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/01 19:17:42 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	ft_rrx(t_stack **stack)
 	tmp->next = *stack;
 	*stack = tmp;
 	before->next = NULL;
-
 }
 
 void	ft_rra(t_stack **stack_a)
