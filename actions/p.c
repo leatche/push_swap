@@ -6,22 +6,20 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:22:41 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/02 01:29:37 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/03 00:15:35 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_p(t_stack **stack_src, t_stack **stack_dst)
+void	ft_p(t_stack **pile_source, t_stack **pile_dest)
 {
-	t_stack	*tmp;
-
-	if (*stack_src == NULL)
+	if (!pile_source || *pile_source == NULL)
 		return ;
-	tmp = *stack_src;
-	*stack_src = tmp->next;
-	tmp->next = *stack_dst;
-	*stack_dst = tmp;
+	ft_add_new_element((*pile_source)->content, pile_dest);
+	(*pile_source)->prev->next = (*pile_source)->next;
+	(*pile_source)->next->prev = (*pile_source)->prev;
+	(*pile_source) = (*pile_source)->next;
 }
 
 void	ft_pa(t_stack **stack_a, t_stack **stack_b)

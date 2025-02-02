@@ -6,7 +6,7 @@
 #    By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/12 08:50:30 by tcherepoff        #+#    #+#              #
-#    Updated: 2025/02/02 01:56:12 by tcherepoff       ###   ########.fr        #
+#    Updated: 2025/02/03 00:09:15 by tcherepoff       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,11 @@ SRCS_ALGO =		algorithm.c				\
 SRCS = $(SRCS_PARSING) $(SRCS_ACTIONS) $(SRCS_ALGO)
 
 OBJS = $(SRCS:.c=.o)
-FLAG = -Wall -Werror -Wextra -Ilibft -I.
+FLAG = -Wall -Werror -Wextra -Ilibft -I. -g3 -fsanitize=address
 LDFLAG = ./libft/libft.a
 RM = rm -f
 AR = ar rcs
+CC = gcc
 
 .c.o:
 			$(CC) $(FLAG) -c $< -o $(<:.c=.o)

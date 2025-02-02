@@ -6,21 +6,19 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:23:21 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/02 01:20:11 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/02 23:27:40 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_s(t_stack **ptr)
+void	ft_s(t_stack **stack)
 {
-	int		tmp;
-	t_stack	*stack;
+	int	tmp;
 
-	stack = *ptr;
-	tmp = stack->content;
-	stack->content = stack->next->content;
-	stack->next->content = tmp;
+	tmp = (*stack)->content;
+	(*stack)->content = (*stack)->next->content;
+	(*stack)->next->content = tmp;
 }
 
 void	ft_sa(t_stack **stack_a)
