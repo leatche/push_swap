@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:22:41 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/01 19:18:08 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/02 01:29:37 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ void	ft_p(t_stack **stack_src, t_stack **stack_dst)
 void	ft_pa(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_p(stack_b, stack_a);
-	ft_putstr("pa\n");
+	ft_putstr_fd("pa\n", 1);
 }
 
 void	ft_pb(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_p(stack_a, stack_b);
-	ft_putstr("pb\n");
+	ft_putstr_fd("pb\n", 1);
 }

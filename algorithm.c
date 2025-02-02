@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 02:34:46 by ltcherep          #+#    #+#             */
-/*   Updated: 2025/02/01 21:05:18 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/02 01:58:15 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		return (-1);
 	}
-	stack_a = ft_executate(stack_a, stack_b);
+	ft_executate(&stack_a, &stack_b);
 	if (ft_sorted_a(stack_a) == -1)
 	{
 		write(2, "la chaine n'est pas trié\n", 27);
@@ -36,23 +36,21 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-t_stack	*ft_executate(t_stack *stack_a, t_stack *stack_b)
+void ft_executate(t_stack **stack_a, t_stack **stack_b)
 {
-	if (ft_strlen_stack(stack_a) == 1 || ft_strlen_stack(stack_a) == 0)
-		return (stack_a);
-	else if (ft_strlen_stack(stack_a) == 2)
+	if (ft_strlen_stack(*stack_a) == 1 || ft_strlen_stack(*stack_a) == 0)
+		return ;
+	else if (ft_strlen_stack(*stack_a) == 2)
 		ft_two_number(stack_a);
-	else if (ft_strlen_stack(stack_a) == 3)
+	else if (ft_strlen_stack(*stack_a) == 3)
 		ft_three_number(stack_a);
-	else if (ft_strlen_stack(stack_a) == 4)
+	else if (ft_strlen_stack(*stack_a) == 4)
 		ft_four_number(stack_a, stack_b);
-	else if (ft_strlen_stack(stack_a) == 5)
+	else if (ft_strlen_stack(*stack_a) == 5)
 		ft_five_number(stack_a, stack_b);
 	else
 		ft_big_algorithm(stack_a, stack_b);
-	return (stack_a);
 }
-
 
 int	ft_where_top(t_stack *number_chose, t_stack *stack_a, t_stack *stack_b)
 {
@@ -112,7 +110,7 @@ int	ft_count_bottom_of_top(t_stack *number_chose, t_stack *stack_a, t_stack *sta
 }
 
 
-int	ft_count_top_of_bottom(int number_chose, t_stack* stack_a, t_stack *stack_b)
+int	ft_count_top_of_bottom(t_stack *number_chose, t_stack* stack_a, t_stack *stack_b)
 {
 	int	count;
 	int count_move;
@@ -124,7 +122,7 @@ int	ft_count_top_of_bottom(int number_chose, t_stack* stack_a, t_stack *stack_b)
 	return (count_move);
 }
 
-int	ft_count_bottom_of_bottom(int number_chose, t_stack* stack_a, t_stack *stack_b)
+int	ft_count_bottom_of_bottom(t_stack *number_chose, t_stack* stack_a, t_stack *stack_b)
 {
 	int	count;
 	int count_move;
@@ -249,5 +247,31 @@ int	ft_get_index(t_stack *tmp, t_stack *stack_a)
 
 int	ft_sorted_a(t_stack *stack_a)
 {
-	
+	(void)stack_a;
+	return (0);
+}
+
+void print_stack(t_stack *stack)
+{
+	t_stack *begin;
+	int		i;
+
+	i = 0;
+	begin = stack;
+	while (i == 0 || stack != begin)
+	{
+		printf("%d ", stack->content);
+		i++;
+		stack = stack->next;
+	}
+	printf("\n");
+}
+
+t_stack	*ft_stacklast(t_stack *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

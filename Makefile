@@ -3,18 +3,32 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ltcherep <ltcherep@student.42nice.fr>      +#+  +:+       +#+         #
+#    By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/12 08:50:30 by tcherepoff        #+#    #+#              #
-#    Updated: 2025/01/21 02:15:35 by ltcherep         ###   ########.fr        #
+#    Updated: 2025/02/02 01:56:12 by tcherepoff       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
-SRCS = checker.c		push_swap.c		parsing.c		type_error.c		utils_error.c
+NAME = push_swap
+SRCS_PARSING =	parsing/parsing.c		\
+				parsing/type_error.c	\
+				parsing/utils_error.c	\
+
+SRCS_ACTIONS =	actions/p.c				\
+				actions/r.c				\
+				actions/rr.c			\
+				actions/s.c				\
+
+SRCS_ALGO =		algorithm.c				\
+				big_algorithm.c			\
+				small_algorithm.c		\
+
+SRCS = $(SRCS_PARSING) $(SRCS_ACTIONS) $(SRCS_ALGO)
 
 OBJS = $(SRCS:.c=.o)
-FLAG = -Wall -Werror -Wextra -Ilibft
+FLAG = -Wall -Werror -Wextra -Ilibft -I.
+LDFLAG = ./libft/libft.a
 RM = rm -f
 AR = ar rcs
 
@@ -23,8 +37,7 @@ AR = ar rcs
 
 $(NAME):	$(OBJS)
 			$(MAKE) -C ./libft
-			cp libft/libft.a $(NAME)
-			$(AR) $(NAME) $(OBJS)
+			$(CC) $(FLAG) $(OBJS) $(LDFLAG) -o $(NAME)
 
 all:		$(NAME)
 

@@ -6,14 +6,14 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 14:13:39 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/01 19:30:30 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/02 01:55:58 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-static t_stack	*ft_create_list(int argc, char **argv)
+t_stack	*ft_create_list(int argc, char **argv)
 {
 	t_stack	*list;
 	char	**new;
@@ -92,29 +92,29 @@ void	free_stack(t_stack *stack)
 	stack = NULL;
 }
 
-int	main(int argc, char **argv)
-{
-	t_stack	*stack_a;
+// int	ft_parsing(int argc, char **argv)
+// {
+// 	t_stack	*stack_a;
 
-	stack_a = NULL;
-	stack_a = ft_create_list(argc, argv);
-	if (ft_check_letter_bad_position(argv) == -1)
-	{
-		printf("Error: de caractere.\n");
-		free_stack(stack_a);
-		return (0);
-	}
-	else if (ft_check_duplicate(stack_a) == 0)
-	{
-		printf("Error: duplicat.\n");
-		free_stack(stack_a);
-		return (0);
-	}
-	else
-	{
-		printf("la chaine est donc : \n");
-		print_stack(stack_a);
-	}
-	free_stack(stack_a);
-	return (0);
-}
+// 	stack_a = NULL;
+// 	stack_a = ft_create_list(argc, argv);
+// 	if (ft_check_letter_bad_position(argv) == -1)
+// 	{
+// 		printf("Error: de caractere.\n");
+// 		free_stack(stack_a);
+// 		return (0);
+// 	}
+// 	else if (ft_check_duplicate(stack_a) == 0)
+// 	{
+// 		printf("Error: duplicat.\n");
+// 		free_stack(stack_a);
+// 		return (0);
+// 	}
+// 	else
+// 	{
+// 		printf("la chaine est donc : \n");
+// 		print_stack(stack_a);
+// 	}
+// 	free_stack(stack_a);
+// 	return (0);
+// }

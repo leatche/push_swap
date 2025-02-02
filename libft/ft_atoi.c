@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:17:59 by ltcherep          #+#    #+#             */
-/*   Updated: 2025/02/01 19:37:15 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/02 01:30:51 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ int	ft_atoi(const char *str)
 	}
 	result *= minus;
 	if (result > INT_MAX || result < INT_MIN)
-		return ;
+		return (result);
 	return (result);
 }
