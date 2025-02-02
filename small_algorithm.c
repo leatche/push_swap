@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:51:05 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/02 01:53:11 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/02 02:05:30 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void	ft_two_number(t_stack **stack_a)
 
 void	ft_three_number(t_stack **stack_a)
 {
-	t_stack	*tmp;
-	t_stack	*tmp1;
-	t_stack	*tmp2;
+	int	tmp;
+	int	tmp1;
+	int	tmp2;
 
-	tmp = *stack_a;
-	tmp1 = tmp->next;
-	tmp2 = tmp->prev;
+	tmp = (*stack_a)->content;
+	tmp1 = (*stack_a)->next->content;
+	tmp2 = (*stack_a)->prev->content;
 	if (tmp && tmp1 > tmp && tmp2 > tmp1)
 		return ;
 	else if ((tmp < tmp1) && (tmp1 > tmp2) && (tmp < tmp2))

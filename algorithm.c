@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 02:34:46 by ltcherep          #+#    #+#             */
-/*   Updated: 2025/02/02 01:58:15 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/02 02:10:59 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		return (-1);
 	}
-	ft_executate(&stack_a, &stack_b);
+	// ft_sa(&stack_a);
+	// ft_executate(&stack_a, &stack_b);
+	print_stack(stack_a);
 	if (ft_sorted_a(stack_a) == -1)
 	{
 		write(2, "la chaine n'est pas trié\n", 27);
@@ -145,9 +147,11 @@ int	ft_strlen_stack(t_stack *stack)
 	int	i;
 	t_stack	*tmp;
 
-	i = 1;
+	if (!stack)
+		return (0);
+	i = 0;
 	tmp = stack;
-	while (tmp && tmp != stack)
+	while (i == 0 || (tmp && tmp != stack))
 	{
 		tmp = tmp->next;
 		i++;
