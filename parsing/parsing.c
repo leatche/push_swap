@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 14:13:39 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/03 00:46:25 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/03 02:32:29 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_create_element(int nbr, t_stack **new_element)
 {
 	(*new_element) = malloc(sizeof(t_stack));
 	if (!(*new_element))
-		return (0);
+		return (-1);
 	(*new_element)->content = nbr;
 	(*new_element)->next = NULL;
 	(*new_element)->prev = NULL;
@@ -55,7 +55,7 @@ int	ft_add_to_parse_new_element(int nbr, t_stack **stack_tmp)
 {
 	t_stack	*new_element;
 
-	if (ft_create_element(nbr, &new_element) == 0)
+	if (ft_create_element(nbr, &new_element) == -1)
 		return (0);
 	if (!(*stack_tmp))
 	{
