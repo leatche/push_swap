@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:52:14 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/02 01:57:43 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/03 01:09:22 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-// typedef struct s_tac
-// {
-// 	t_stack		*begin;
-// }				t_tac;
-
+void			ft_p(t_stack **pile_source, t_stack **pile_dest);
 void			ft_pa(t_stack **stack_a, t_stack **stack_b);
 void			ft_pb(t_stack **stack_a, t_stack **stack_b);
 void			ft_r(t_stack **stack);
@@ -53,6 +49,7 @@ t_stack			*ft_create_list(int argc, char **argv);
 int				ft_create_element(int nbr, t_stack **new_element);
 int				ft_add_new_element(int nbr, t_stack **stack_tmp);
 void			free_stack(t_stack *stack);
+int				ft_add_to_parse_new_element(int nbr, t_stack **stack_tmp);
 
 void			ft_error(void);
 void			ft_letter(char **argv);
@@ -115,6 +112,6 @@ int				ft_get_index(t_stack *tmp, t_stack *stack_a);
 
 t_stack			*ft_stacklast(t_stack *lst);
 void			print_stack(t_stack *stack);
-int				ft_sorted_a(t_stack *stack_a);
+int				ft_sorted_a(t_stack **stack_a);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 02:34:46 by ltcherep          #+#    #+#             */
-/*   Updated: 2025/02/02 22:52:03 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/03 02:24:52 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,26 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		return (-1);
 	}
-	ft_executate(&stack_a, &stack_b);
-//	print_stack(stack_a);
-	//if (ft_sorted_a(stack_a) == -1)
-	//{
-		//write(2, "la chaine n'est pas trié\n", 27);
-	//	return (-1);
-	//}
+	if (ft_check_letter_bad_position(argv) == -1)
+	{
+		printf("Error: de caractere.\n");
+		free_stack(stack_a);
+		return (0);
+	}
+	else if (ft_check_duplicate(stack_a) == 0)
+	{
+		printf("Error: duplicat.\n");
+		free_stack(stack_a);
+		return (0);
+	}
+	else
+	{
+		printf("la chaine est donc : \n");
+		print_stack(stack_a);
+	}
+	if (ft_sorted_a(&stack_a) == -1)
+		ft_executate(&stack_a, &stack_b);
+	print_stack(stack_a);
 	free(stack_b);
 	free_stack(stack_a);
 	return (0);
@@ -248,10 +261,25 @@ int	ft_get_index(t_stack *tmp, t_stack *stack_a)
 	return (count);
 }
 
-int	ft_sorted_a(t_stack *stack_a)
+int	ft_sorted_a(t_stack **stack_a)
 {
-	(void)stack_a;
-	return (0);
+	int	i;
+	int	length;
+	t_stack	*tmp;
+
+	length = ft_strlen_stack(*stack_a);
+	if (length > 0)
+	{
+		i = 1;
+		while (tmp && i++ < length)
+		{
+			if (tmp->content > tmp->next->content)
+				return (-1);
+			tmp = tmp->next;
+		}
+		return (1);
+	}
+	return (1);
 }
 
 void print_stack(t_stack *stack)
@@ -261,7 +289,7 @@ void print_stack(t_stack *stack)
 
 	i = 0;
 	begin = stack;
-	while (i == 0 || stack != begin)
+	while (stack && (i == 0 || stack != begin))
 	{
 		printf("%d ", stack->content);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 14:13:39 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/02 01:55:58 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/03 00:46:25 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_stack	*ft_create_list(int argc, char **argv)
 		j = 0;
 		while (new[j] != NULL)
 		{
-			ft_add_new_element(ft_atoi(new[j]), &list);
+			ft_add_to_parse_new_element(ft_atoi(new[j]), &list);
 			free(new[j]);
 			j++;
 		}
@@ -51,7 +51,7 @@ int	ft_create_element(int nbr, t_stack **new_element)
 	return (1);
 }
 
-int	ft_add_new_element(int nbr, t_stack **stack_tmp)
+int	ft_add_to_parse_new_element(int nbr, t_stack **stack_tmp)
 {
 	t_stack	*new_element;
 
@@ -69,7 +69,6 @@ int	ft_add_new_element(int nbr, t_stack **stack_tmp)
 		new_element->next = (*stack_tmp);
 		(*stack_tmp)->prev->next = new_element;
 		(*stack_tmp)->prev = new_element;
-		(*stack_tmp) = new_element;
 	}
 	return (1);
 }
@@ -92,29 +91,29 @@ void	free_stack(t_stack *stack)
 	stack = NULL;
 }
 
-// int	ft_parsing(int argc, char **argv)
-// {
-// 	t_stack	*stack_a;
+ int	ft_parsing(int argc, char **argv)
+ {
+ 	t_stack	*stack_a;
 
-// 	stack_a = NULL;
-// 	stack_a = ft_create_list(argc, argv);
-// 	if (ft_check_letter_bad_position(argv) == -1)
-// 	{
-// 		printf("Error: de caractere.\n");
-// 		free_stack(stack_a);
-// 		return (0);
-// 	}
-// 	else if (ft_check_duplicate(stack_a) == 0)
-// 	{
-// 		printf("Error: duplicat.\n");
-// 		free_stack(stack_a);
-// 		return (0);
-// 	}
-// 	else
-// 	{
-// 		printf("la chaine est donc : \n");
-// 		print_stack(stack_a);
-// 	}
-// 	free_stack(stack_a);
-// 	return (0);
-// }
+ 	stack_a = NULL;
+	stack_a = ft_create_list(argc, argv);
+	if (ft_check_letter_bad_position(argv) == -1)
+	{
+		printf("Error: de caractere.\n");
+		free_stack(stack_a);
+		return (0);
+	}
+	else if (ft_check_duplicate(stack_a) == 0)
+	{
+		printf("Error: duplicat.\n");
+		free_stack(stack_a);
+		return (0);
+	}
+	else
+	{
+		printf("la chaine est donc : \n");
+		print_stack(stack_a);
+	}
+	free_stack(stack_a);
+	return (0);
+}
