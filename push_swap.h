@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:52:14 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/03 01:09:22 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/04 23:47:12 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ void			ft_two_number(t_stack **stack_a);
 void			ft_three_number(t_stack **stack_a);
 void			ft_four_number(t_stack **stack_a, t_stack **stack_b);
 void			ft_five_number(t_stack **stack_a, t_stack **stack_b);
-t_stack			*ft_min(t_stack *stack_a);
-t_stack			*ft_little(t_stack *stack_a, t_stack *min);
+int				ft_min(t_stack **stack_a);
+int				ft_little(t_stack **stack_a);
 
 void			ft_executate(t_stack **stack_a, t_stack **stack_b);
 int				ft_where_top(t_stack *number_chose, t_stack *stack_a,
@@ -105,7 +105,7 @@ int				ft_count_bottom_of_bottom(t_stack *number_chose, t_stack *stack_a,
 					t_stack *stack_b);
 int				ft_strlen_stack(t_stack *stack);
 int				ft_middle(t_stack *stack);
-int				ft_search_less(t_stack *number_chose, t_stack *stack_b);
+int				ft_search_less(t_stack *number_chose, t_stack **stack_b);
 int				is_minimum(t_stack *actual_number, t_stack	*where);
 int				is_maximum(t_stack *actual_number, t_stack	*where);
 int				ft_get_index(t_stack *tmp, t_stack *stack_a);
@@ -113,5 +113,6 @@ int				ft_get_index(t_stack *tmp, t_stack *stack_a);
 t_stack			*ft_stacklast(t_stack *lst);
 void			print_stack(t_stack *stack);
 int				ft_sorted_a(t_stack **stack_a);
-
+int				ft_less(t_stack **stack_b, t_stack *tmp);
+int				ft_brave(t_stack **stack_b, t_stack *number_chose);
 #endif

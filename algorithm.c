@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 02:34:46 by ltcherep          #+#    #+#             */
-/*   Updated: 2025/02/03 02:33:36 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/05 00:17:35 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ int	main(int argc, char **argv)
 	}
 	if (ft_sorted_a(&stack_a) == -1)
 		ft_executate(&stack_a, &stack_b);
-	print_stack(stack_a);
-	free(stack_b);
+	free_stack(stack_b);
 	free_stack(stack_a);
 	return (0);
 }
@@ -102,7 +101,7 @@ int	ft_count_top_of_top(t_stack *number_chose, t_stack *stack_a, t_stack *stack_
 	int	index;
 	int	win;
 
-	count = ft_search_less(number_chose, stack_b);
+	count = ft_search_less(number_chose, &stack_b);
 	index = ft_get_index(number_chose, stack_a) - 1;
 	win = 0;
 	while (count - win > 0 && index - win > 0)
@@ -117,7 +116,7 @@ int	ft_count_bottom_of_top(t_stack *number_chose, t_stack *stack_a, t_stack *sta
 	int count_move;
 	int	index;
 
-	count = ft_strlen_stack(stack_b) - ft_search_less(number_chose, stack_b) + 1;
+	count = ft_strlen_stack(stack_b) - ft_search_less(number_chose, &stack_b) + 1;
 	index = ft_get_index(number_chose, stack_a) - 1;
 	count_move = (count + index) + 1;
 	return (count_move);
@@ -130,7 +129,7 @@ int	ft_count_top_of_bottom(t_stack *number_chose, t_stack* stack_a, t_stack *sta
 	int count_move;
 	int	index;
 
-	count = ft_search_less(number_chose, stack_b);
+	count = ft_search_less(number_chose, &stack_b);
 	index = ft_strlen_stack(stack_a) - ft_get_index(number_chose, stack_a);
 	count_move = (count + index) + 1;
 	return (count_move);
@@ -143,7 +142,7 @@ int	ft_count_bottom_of_bottom(t_stack *number_chose, t_stack* stack_a, t_stack *
 	int	index;
 	int	win;
 
-	count = ft_strlen_stack(stack_b) - ft_search_less(number_chose, stack_b);
+	count = ft_strlen_stack(stack_b) - ft_search_less(number_chose, &stack_b);
 	index = ft_strlen_stack(stack_a) - ft_get_index(number_chose, stack_a);
 	win = 0;
 	while (count - win != 0 && index - win != 0)
@@ -187,21 +186,26 @@ int	ft_middle(t_stack *stack)
 	return (count);
 }
 
-int ft_search_less(t_stack *number_chose, t_stack *stack_b)
+int ft_search_less(t_stack *number_chose, t_stack **stack_b)
 {
 	t_stack	*tmp;
 	int		count;
 
-	tmp = stack_b->next;
+	tmp = (*stack_b)->next;
 	count = 0;
-	if (is_maximum(number_chose, stack_b) == 1)
-		return (count);
-	else 
-		while (tmp && tmp != stack_b && tmp->content > number_chose->content)
-		{
-			tmp = tmp->next;
-			count++;
-		}
+	if (ft_sorted_b(*stack_b))
+	{
+		if (is_maximum(number_chose, *stack_b) == 1)
+			return (count);
+		else 
+			while (tmp && tmp != *stack_b && tmp->content > number_chose->content)
+			{
+				tmp = tmp->next;
+				count++;
+			}
+	}
+	else
+		count = ft_brave(stack_b, number_chose);
 	return (count);
 }
 int	is_minimum(t_stack *actual_number, t_stack	*where)
@@ -305,4 +309,40 @@ t_stack	*ft_stacklast(t_stack *lst)
 	while (lst->next)
 		lst = lst->next;
 	return (lst);
+}
+
+int	ft_brave(t_stack **stack_b, t_stack *number_chose)
+{
+	t_stack	*tmp;
+	int	indice_min;
+	int	indice;
+
+	tmp = *stack_b;
+	indice_min = ft_min(stack_b);
+	while (tmp && indice_min-- > 0)
+		tmp = tmp->next;
+	indice = ft_less(stack_b, number_chose);
+	if (indice == -1)
+	{
+		tmp = *stack_b;
+		indice = ft_less(stack_b, number_chose);
+	}
+	else
+		indice += indice_min; 
+	return (indice);
+}
+
+int	ft_less(t_stack **stack_b, t_stack *tmp)
+{
+	int	indice;
+
+	indice = 0;
+	while (tmp && (indice == 0 || tmp != *stack_b))
+	{
+		if (tmp->content < tmp->next->content)
+			return (indice);
+		tmp = tmp->next;
+		++indice;
+	}
+	return (-1);
 }

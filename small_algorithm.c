@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:51:05 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/03 02:57:49 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/04 23:54:21 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,65 +79,82 @@ void	ft_four_number(t_stack **stack_a, t_stack **stack_b)
 void	ft_five_number(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*tmp;
-	t_stack	*min;
-	t_stack	*little;
-
+	int		index_min;
+	int		index_tmp;
+	int		index_little;
+	
 	tmp = *stack_a;
-	min = ft_min(*stack_a);
-	little = ft_little(*stack_a, min);
+	index_min = ft_min(stack_a);
+	index_tmp = 0;
+	index_little = ft_little(stack_a);
 	while (ft_strlen_stack(*stack_b) != 2)
 	{
-		if (tmp == min || tmp == little)
+		if (tmp && (index_min == index_tmp || index_little == index_tmp))
 			ft_pb(stack_a, stack_b);
-		else if (tmp->next == min || tmp->next == little)
-		{
-			ft_sa(stack_a);
-			ft_pb(stack_a, stack_b);
-		}
 		else
+		{
 			ft_rra(stack_a);
+			index_min = ft_min(stack_a);
+			index_little = ft_little(stack_a);
+		}
 	}
 	ft_three_number(stack_a);
-	ft_two_number(stack_b);
+	ft_two_number(stack_b); // trié dans l'autre sens 
 	ft_pa(stack_a, stack_b);
 	ft_pa(stack_a, stack_b);
 }
 
-t_stack	*ft_min(t_stack *stack_a)
+int	ft_min(t_stack **stack_a)
 {
 	t_stack	*tmp;
 	t_stack	*min;
-
-	min = stack_a;
-	tmp = stack_a->next;
-	min->content = stack_a->content;
-	while (tmp != stack_a)
+	int		index;
+	int		min_index;
+	
+	if (!stack_a || !*stack_a)
+		return (-1);
+	min = *stack_a;
+	tmp = (*stack_a)->next;
+	index = 0;
+	min_index = 0;
+	while (tmp != *stack_a)
 	{
+		index++;
 		if (tmp->content < min->content)
-			min->content = tmp->content;
+		{
+			min = tmp;
+			min_index = index;
+		}
 		tmp = tmp->next;
 	}
-	if (tmp->content < min->content)
-		min->content = tmp->content;
-	return (min);
+	return (min_index);
 }
 
-t_stack	*ft_little(t_stack *stack_a, t_stack *min)
+
+int	ft_little(t_stack **stack_a)
 {
 	t_stack	*tmp;
-	t_stack	*little;
+	int		index;
+	int		index_min;
+	int		little;
+	t_stack	*little_point;
 
-	little = stack_a;
-	tmp = stack_a->next;
-	if (stack_a->content == min->content)
-		little->content = stack_a->next->content;
-	else
-		little->content = stack_a->content;
-	while (tmp != stack_a)
+	if (!stack_a || !*stack_a || !(*stack_a)->next)
+		return (-1);
+	index_min = ft_min(stack_a);
+	tmp = *stack_a;
+	index = 0;
+	little = 0;
+	little_point = NULL;
+	while (tmp != *stack_a || index == 0)
 	{
-		if (tmp->content != min->content && tmp->content < little->content)
-			min->content = tmp->content;
+		if (index != index_min && (!little_point || tmp->content < little_point->content))
+		{
+			little_point = tmp;
+			little = index;
+		}
 		tmp = tmp->next;
+		index++;
 	}
 	return (little);
 }
