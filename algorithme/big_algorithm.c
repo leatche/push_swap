@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 16:20:35 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/05 03:05:36 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/05 04:56:32 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,7 +197,6 @@ void	ft_special_bottom_bottom(t_stack *tmp, t_stack **stack_a,
 	int	index;
 	int	win;
 
-	printf("ft_special_bottom_bottom\n");
 	count = ft_strlen_stack(*stack_b) - ft_search_less_b(tmp, stack_b) + 1;
 	index = ft_strlen_stack(*stack_a) - ft_get_index(tmp, *stack_a) + 1;
 	win = 0;

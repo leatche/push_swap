@@ -6,22 +6,13 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 02:34:46 by ltcherep          #+#    #+#             */
-/*   Updated: 2025/02/05 04:35:19 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/05 04:57:07 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-
-// mon algo de search less est faux dans le cas :
-/*
-	3			4	car 3 est plus grand jusqu'a 3 donc le push mais quand on 
-					rotate c'est a l'envers
-	8
-	7
-	5
-*/
 
 int	main(int argc, char **argv)
 {
@@ -380,7 +371,6 @@ int	ft_brave_a(t_stack **stack_a, t_stack *number_chose)
 	while (tmp && indice_min_tmp-- > 0)
 		tmp = tmp->next;
 	indice = ft_less_a(number_chose, &tmp);
-	printf("indice : %d %d : %d\n", number_chose->content, (*stack_a)->content, indice);
 	if (indice == -1)
 	{
 		tmp = *stack_a;

@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:51:05 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/05 04:39:30 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/05 05:00:10 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,11 @@ void	ft_five_number(t_stack **stack_a, t_stack **stack_b)
 	while (ft_strlen_stack(*stack_b) > 0)
 	{
 		count = ft_search_less_a(*stack_b, stack_a);
-		printf("count = %d\n", count);
 		while (count-- > 0)
 			ft_ra(stack_a);
 		ft_pa(stack_a, stack_b);
 	}
-	while (ft_sorted_a(stack_a) == -1)
-		ft
+	ft_ra_or_rra(stack_a);
 	print_stack(*stack_a);
 }
 
