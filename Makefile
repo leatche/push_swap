@@ -6,23 +6,23 @@
 #    By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/12 08:50:30 by tcherepoff        #+#    #+#              #
-#    Updated: 2025/02/03 00:09:15 by tcherepoff       ###   ########.fr        #
+#    Updated: 2025/02/05 01:24:13 by tcherepoff       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-SRCS_PARSING =	parsing/parsing.c		\
-				parsing/type_error.c	\
-				parsing/utils_error.c	\
+SRCS_PARSING =	parsing/parsing.c				\
+				parsing/type_error.c			\
+				parsing/utils_error.c			\
 
-SRCS_ACTIONS =	actions/p.c				\
-				actions/r.c				\
-				actions/rr.c			\
-				actions/s.c				\
+SRCS_ACTIONS =	actions/p.c						\
+				actions/r.c						\
+				actions/rr.c					\
+				actions/s.c						\
 
-SRCS_ALGO =		algorithm.c				\
-				big_algorithm.c			\
-				small_algorithm.c		\
+SRCS_ALGO =		algorithme/algorithm.c			\
+				algorithme/big_algorithm.c		\
+				algorithme/small_algorithm.c	\
 
 SRCS = $(SRCS_PARSING) $(SRCS_ACTIONS) $(SRCS_ALGO)
 
