@@ -6,7 +6,7 @@
 #    By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/12 08:50:30 by tcherepoff        #+#    #+#              #
-#    Updated: 2025/02/05 01:24:13 by tcherepoff       ###   ########.fr        #
+#    Updated: 2025/02/05 05:03:16 by tcherepoff       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ SRCS_ALGO =		algorithme/algorithm.c			\
 				algorithme/big_algorithm.c		\
 				algorithme/small_algorithm.c	\
 
-SRCS = $(SRCS_PARSING) $(SRCS_ACTIONS) $(SRCS_ALGO)
+SRCS_UTILS =	utils/utils_a.c					\
+
+SRCS = $(SRCS_PARSING) $(SRCS_ACTIONS) $(SRCS_ALGO) $(SRCS_UTILS)
 
 OBJS = $(SRCS:.c=.o)
 FLAG = -Wall -Werror -Wextra -Ilibft -I. -g3 -fsanitize=address
