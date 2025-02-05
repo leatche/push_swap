@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:52:14 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/05 03:35:50 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/05 04:20:16 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void			ft_put_it_back(t_stack **stack_b);
 void			ft_two_number_a(t_stack **stack_a);
 void			ft_two_number_b(t_stack **stack_a);
 void			ft_three_number(t_stack **stack_a);
-void			ft_four_number(t_stack **stack_a, t_stack **stack_b);
 void			ft_five_number(t_stack **stack_a, t_stack **stack_b);
 int				ft_min(t_stack **stack_a);
 int				ft_little(t_stack **stack_a);

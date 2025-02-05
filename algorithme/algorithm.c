@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 02:34:46 by ltcherep          #+#    #+#             */
-/*   Updated: 2025/02/05 03:50:22 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/05 04:35:19 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,7 @@ void ft_executate(t_stack **stack_a, t_stack **stack_b)
 		ft_two_number_a(stack_a);
 	else if (ft_strlen_stack(*stack_a) == 3)
 		ft_three_number(stack_a);
-	else if (ft_strlen_stack(*stack_a) == 4)
-		ft_four_number(stack_a, stack_b);
-	else if (ft_strlen_stack(*stack_a) == 5)
+	else if (ft_strlen_stack(*stack_a) == 5 || ft_strlen_stack(*stack_a) == 4)
 		ft_five_number(stack_a, stack_b);
 	else
 		ft_big_algorithm(stack_a, stack_b);
@@ -226,8 +224,6 @@ int ft_search_less_a(t_stack *number_chose, t_stack **stack_a)
 	t_stack	*tmp;
 	int		count;
 
-	if (!stack_a || !*stack_a)
-		return (-1);
 	tmp = *stack_a;
 	count = 0;
 	if (ft_sorted_a(stack_a) == 1)
@@ -376,19 +372,22 @@ int	ft_brave_a(t_stack **stack_a, t_stack *number_chose)
 	t_stack	*tmp;
 	int	indice_min;
 	int	indice;
+	int	indice_min_tmp;
 
 	tmp = *stack_a;
 	indice_min = ft_min(stack_a);
-	while (tmp && indice_min-- > 0)
+	indice_min_tmp = indice_min;
+	while (tmp && indice_min_tmp-- > 0)
 		tmp = tmp->next;
-	indice = ft_less_a(number_chose, stack_a);
+	indice = ft_less_a(number_chose, &tmp);
+	printf("indice : %d %d : %d\n", number_chose->content, (*stack_a)->content, indice);
 	if (indice == -1)
 	{
 		tmp = *stack_a;
 		indice = ft_less_a(number_chose, stack_a);
 	}
 	else
-		indice += indice_min; 
+		indice = indice + indice_min;
 	return (indice);
 }
 
@@ -404,7 +403,7 @@ int	ft_less_a(t_stack *number_chose, t_stack **stack_a)
 		if (number_chose->content < tmp_a->content)
 			return (indice);
 		tmp_a = tmp_a->next;
-		++indice;
+		indice++;
 	}
 	return (-1);
 }
