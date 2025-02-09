@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 16:20:35 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/05 04:56:32 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/09 11:54:48 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,17 @@ void	ft_big_algorithm(t_stack **stack_a, t_stack **stack_b)
 	int	index;
 
 	while (ft_strlen_stack(*stack_b) != 2)
-	{
 		ft_pb(stack_a, stack_b);
-	}
 	ft_two_number_b(stack_b);
 	while (ft_strlen_stack(*stack_a) != 0)
 	{
-		index = ft_tester_each(*stack_a, *stack_b);
-		printf("i : %d\n", index);
+		
+		index = ft_tester_each(stack_a, stack_b);
+		print_stack(*stack_a);
+		print_stack(*stack_b);
 		ft_now_push_it(index, stack_a, stack_b);
+		print_stack(*stack_a);
+		print_stack(*stack_b);
 	}
 	// ft_three_number(stack_a);
 //	if (ft_sorted_b(*stack_b) == -1)
@@ -52,7 +54,7 @@ int	ft_valid_number(t_stack *tmp, t_stack *stack_a, t_stack *stack_b,
 	return (-1);
 }
 
-int	ft_tester_each(t_stack *stack_a, t_stack *stack_b)
+int	ft_tester_each(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*tmp;
 	int		count_move;
@@ -60,19 +62,24 @@ int	ft_tester_each(t_stack *stack_a, t_stack *stack_b)
 	int		good_index;
 	int		isvalid;
 
-	tmp = stack_a;
+	tmp = *stack_a;
 	count_move = INT_MAX;
-	while (count_move == INT_MAX || tmp != stack_a)
+	while (count_move == INT_MAX || tmp != *stack_a)
 	{
-		isvalid = ft_valid_number(tmp, stack_a, stack_b, ft_middle(stack_a));
-		if (isvalid == 1)
-			count_move_new = ft_where_top(tmp, stack_a, stack_b);
+		
+		isvalid = ft_valid_number(tmp, *stack_a, *stack_b, ft_middle(*stack_a));
+		if (isvalid == 1 || ft_strlen_stack(*stack_a) == 1)
+		{
+			count_move_new = ft_where_top(tmp, *stack_a, *stack_b);
+			printf("nombre cout du nouveau  %d\n", isvalid);
+		}
+			
 		else if (isvalid == 2)
-			count_move_new = ft_where_bottom(tmp, stack_a, stack_b);
+			count_move_new = ft_where_bottom(tmp, *stack_a, *stack_b);
 		if (count_move_new < count_move)
 		{
 			count_move = count_move_new;
-			good_index = ft_get_index(tmp, stack_a) - 1;
+			good_index = ft_get_index(tmp, *stack_a) - 1;
 		}
 		tmp = tmp->next;
 	}
@@ -144,12 +151,15 @@ void	ft_special_top_top(t_stack *tmp, t_stack **stack_a, t_stack **stack_b)
 	int	count;
 	int	index;
 	int	win;
+	int tmp1;
+	int tmp2;
 
 	count = ft_search_less_b(tmp, stack_b);
 	index = ft_get_index(tmp, *stack_a) - 1;
 	win = 0;
-	printf("ft_special_top_top %d %d\n", count, index);
-	while (count-- > 0 && index-- > 0)
+	tmp1 = count;
+	tmp2 = index;
+	while (tmp1-- > 0 && tmp2-- > 0)
 		win++;
 	while (win-- > 0)
 		ft_rr(stack_a, stack_b);
@@ -157,6 +167,8 @@ void	ft_special_top_top(t_stack *tmp, t_stack **stack_a, t_stack **stack_b)
 		ft_rb(stack_b);
 	while (index-- > 0)
 		ft_ra(stack_a);
+	print_stack(*stack_a);
+	print_stack(*stack_b);
 	ft_pb(stack_a, stack_b);
 }
 
@@ -180,11 +192,10 @@ void	ft_special_bottom_top(t_stack *tmp, t_stack **stack_a, t_stack **stack_b)
 	int	count;
 	int	index;
 
-	printf("ft_special_bottom_top\n");
 	count = ft_search_less_b(tmp, stack_b);
 	index = ft_strlen_stack(*stack_a) - ft_get_index(tmp, *stack_a);
 	while (count-- > 0)
-		ft_rb(stack_b);
+		ft_rrb(stack_b);
 	while (index-- > 0)
 		ft_rra(stack_a);
 	ft_pb(stack_a, stack_b);
@@ -196,11 +207,15 @@ void	ft_special_bottom_bottom(t_stack *tmp, t_stack **stack_a,
 	int	count;
 	int	index;
 	int	win;
+	int tmp1;
+	int tmp2;
 
 	count = ft_strlen_stack(*stack_b) - ft_search_less_b(tmp, stack_b) + 1;
 	index = ft_strlen_stack(*stack_a) - ft_get_index(tmp, *stack_a) + 1;
+	tmp1 = count;
+	tmp2 = index;
 	win = 0;
-	while (count-- > 0 && index-- > 0)
+	while (tmp1-- > 0 && tmp2-- > 0)
 		win++;
 	while (win-- > 0)
 		ft_rrr(stack_a, stack_b);

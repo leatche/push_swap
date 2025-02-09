@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:52:14 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/05 04:52:15 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/09 08:49:40 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int				space(int c);
 void			ft_big_algorithm(t_stack **stack_a, t_stack **stack_b);
 int				ft_valid_number(t_stack *tmp, t_stack *stack_a,
 					t_stack *stack_b, int middle);
-int				ft_tester_each(t_stack *stack_a, t_stack *stack_b);
+int				ft_tester_each(t_stack **stack_a, t_stack **stack_b);
 void			ft_now_push_it(int index, t_stack **stack_a, t_stack **stack_b);
 void			ft_place(t_stack *tmp, t_stack **stack_a, t_stack **stack_b,
 					int middle);
@@ -116,7 +116,7 @@ t_stack			*ft_stacklast(t_stack *lst);
 void			print_stack(t_stack *stack);
 int				ft_sorted_a(t_stack **stack_a);
 int				ft_less(t_stack **stack_b, t_stack *tmp);
-int				ft_brave(t_stack **stack_b, t_stack *number_chose);
+int				ft_brave_b(t_stack **stack_b, t_stack *number_chose);
 int				ft_less_a(t_stack *number_chose, t_stack **stack_a);
 int				ft_brave_a(t_stack **stack_a, t_stack *number_chose);
 int				ft_less_b( t_stack *tmp, t_stack **stack_b);

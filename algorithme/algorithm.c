@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 02:34:46 by ltcherep          #+#    #+#             */
-/*   Updated: 2025/02/05 05:08:01 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/09 11:58:57 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ int	main(int argc, char **argv)
 	{
 		printf("Error: de caractere.\n");
 		free_stack(stack_a);
-		return (0);
+		return (-1);
 	}
 	else if (ft_check_duplicate(stack_a) == 0)
 	{
 		printf("Error: duplicat.\n");
 		free_stack(stack_a);
-		return (0);
+		return (-1);
 	}
 	else
 	{
@@ -49,6 +49,7 @@ int	main(int argc, char **argv)
 	free_stack(stack_a);
 	return (0);
 }
+
 
 void ft_executate(t_stack **stack_a, t_stack **stack_b)
 {
@@ -69,8 +70,11 @@ int	ft_where_top(t_stack *number_chose, t_stack *stack_a, t_stack *stack_b)
 	int	count_top;
 	int count_bottom;
 
+	
 	count_top = ft_count_top_of_top(number_chose, stack_a, stack_b);
+	printf("yuuu %d\n", count_top);
 	count_bottom = ft_count_bottom_of_top(number_chose, stack_a, stack_b);
+	printf("duuu %d\n", count_bottom);
 	if (count_top <= count_bottom)
 		return (count_top);
 	else
@@ -82,7 +86,7 @@ int	ft_where_bottom(t_stack *number_chose, t_stack *stack_a, t_stack *stack_b)
 {
 	int	count_top;
 	int count_bottom;
-
+	
 	count_top = ft_count_top_of_bottom(number_chose, stack_a, stack_b);
 	count_bottom = ft_count_bottom_of_bottom(number_chose, stack_a, stack_b);
 	if (count_top <= count_bottom)
@@ -100,7 +104,8 @@ int	ft_count_top_of_top(t_stack *number_chose, t_stack *stack_a, t_stack *stack_
 	int	index;
 	int	win;
 
-	count = ft_search_less_b(number_chose, &stack_b);
+	count = ft_less_b(number_chose, &stack_b);
+	printf("le count %d\n", count);
 	index = ft_get_index(number_chose, stack_a) - 1;
 	win = 0;
 	while (count - win > 0 && index - win > 0)
@@ -109,7 +114,7 @@ int	ft_count_top_of_top(t_stack *number_chose, t_stack *stack_a, t_stack *stack_
 	return (count_move);
 }
 
-int	ft_count_bottom_of_top(t_stack *number_chose, t_stack *stack_a, t_stack *stack_b)
+int	ft_count_bottom_of_top(t_stack *number_chose, t_stack *stack_a, t_stack *stack_b) ///pas sur du nombre
 {
 	int	count;
 	int count_move;
@@ -174,23 +179,21 @@ int ft_search_less_b(t_stack *number_chose, t_stack **stack_b)
 	t_stack	*tmp;
 	int		count;
 
-	if (!stack_b || !*stack_b)
-		return (-1);
-	tmp = (*stack_b)->next;
-	count = 1;
+	tmp = *stack_b;
+	count = 0;
 	if (ft_sorted_b(stack_b) == 1)
 	{
-		if (is_maximum(number_chose, *stack_b) == 1)
-			return (count);
-		else 
-			while (tmp && tmp != *stack_b && tmp->content > number_chose->content)
-			{
-				tmp = tmp->next;
-				count++;
-			}
+		while (tmp && (count == 0 || tmp != *stack_b))
+		{
+			if (number_chose->content > tmp->content)
+				return (count);
+			tmp = tmp->next;
+			++count;
+		}
+		return (-1);
 	}
 	else
-		count = ft_brave(stack_b, number_chose);
+		count = ft_brave_b(stack_b, number_chose);
 	return (count);
 }
 
@@ -215,7 +218,8 @@ int	is_minimum(t_stack *actual_number, t_stack	*where)
 	return (1);
 }
 
-int	ft_get_index(t_stack *tmp, t_stack *stack_a)
+int	
+ft_get_index(t_stack *tmp, t_stack *stack_a)
 {
 	int		count;
 	t_stack	*tmp_search;
@@ -255,41 +259,42 @@ t_stack	*ft_stacklast(t_stack *lst)
 	return (lst);
 }
 
-int	ft_brave(t_stack **stack_b, t_stack *number_chose)
+int	ft_brave_b(t_stack **stack_b, t_stack *number_chose)
 {
 	t_stack	*tmp;
 	int	indice_min;
 	int	indice;
+	int	indice_min_tmp;
 
 	tmp = *stack_b;
 	indice_min = ft_min(stack_b);
-	while (tmp && indice_min-- > 0)
+	indice_min_tmp = indice_min;
+	while (tmp && indice_min_tmp-- > 0)
 		tmp = tmp->next;
-	indice = ft_less_b(number_chose, stack_b);
+	indice = ft_less_b(number_chose, &tmp);
 	if (indice == -1)
 	{
 		tmp = *stack_b;
 		indice = ft_less_b(number_chose, stack_b);
 	}
 	else
-		indice += indice_min; 
+		indice = indice + indice_min;
 	return (indice);
 }
 
-
-int	ft_less_b( t_stack *tmp, t_stack **stack_b)
+int	ft_less_b( t_stack *number_chose, t_stack **stack_b)
 {
 	int	indice;
 	t_stack	*tmp_b;
 
 	indice = 0;
 	tmp_b = *stack_b;
-	while (tmp_b && (indice == 0 || tmp != *stack_b))
+	while (tmp_b && (indice == 0 || tmp_b != *stack_b))
 	{
-		if (tmp->content < tmp->next->content)
+		if (number_chose->content < tmp_b->next->content)
 			return (indice);
-		tmp = tmp->next;
-		++indice;
+		tmp_b = tmp_b->next;
+		indice++;
 	}
 	return (-1);
 }
