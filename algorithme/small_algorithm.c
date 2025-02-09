@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:51:05 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/05 05:00:10 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/05 05:06:09 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,28 +79,3 @@ void	ft_five_number(t_stack **stack_a, t_stack **stack_b)
 	print_stack(*stack_a);
 }
 
-int	ft_min(t_stack **stack_a)
-{
-	t_stack	*tmp;
-	t_stack	*min;
-	int		index;
-	int		min_index;
-	
-	if (!stack_a || !*stack_a)
-		return (-1);
-	min = *stack_a;
-	tmp = (*stack_a)->next;
-	index = 0;
-	min_index = 0;
-	while (tmp != *stack_a)
-	{
-		index++;
-		if (tmp->content < min->content)
-		{
-			min = tmp;
-			min_index = index;
-		}
-		tmp = tmp->next;
-	}
-	return (min_index);
-}

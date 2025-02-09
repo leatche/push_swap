@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 02:34:46 by ltcherep          #+#    #+#             */
-/*   Updated: 2025/02/05 05:01:40 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/05 05:08:01 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,22 +152,6 @@ int	ft_count_bottom_of_bottom(t_stack *number_chose, t_stack* stack_a, t_stack *
 
 /////////UTILS∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕∕/
 
-int	ft_strlen_stack(t_stack *stack)
-{
-	int	i;
-	t_stack	*tmp;
-
-	if (!stack)
-		return (0);
-	i = 0;
-	tmp = stack;
-	while (i == 0 || (tmp && tmp != stack))
-	{
-		tmp = tmp->next;
-		i++;
-	}
-	return (i);
-}
 
 int	ft_middle(t_stack *stack)
 {
@@ -227,27 +211,6 @@ int	is_minimum(t_stack *actual_number, t_stack	*where)
 	}
 	diff = tmp->content;
 	if (diff < count)
-		return (-1);
-	return (1);
-}
-
-int	is_maximum(t_stack *actual_number, t_stack	*where)
-{
-	t_stack	*tmp;
-	int		count;
-	int		diff;
-
-	count = actual_number->content;
-	tmp = where;
-	while (tmp && tmp != where->prev)
-	{
-		diff = tmp->content;
-		if (diff > count)
-			return (-1);
-		tmp = tmp->next;
-	}
-	diff = tmp->content;
-	if (diff > count)
 		return (-1);
 	return (1);
 }
