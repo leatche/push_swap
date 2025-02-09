@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_algorithm.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ltcherep <ltcherep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 16:20:35 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/05 01:10:41 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/09 12:06:37 by ltcherep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,10 @@ void	ft_big_algorithm(t_stack **stack_a, t_stack **stack_b)
 	while (ft_strlen_stack(*stack_a) != 0)
 	{
 		index = ft_tester_each(*stack_a, *stack_b);
-		printf("i : %d\n", index);
 		ft_now_push_it(index, stack_a, stack_b);
 	}
-	// ft_three_number(stack_a);
-//	if (ft_sorted_b(*stack_b) == -1)
-	//	ft_put_it_back(stack_b);
+	if (ft_sorted_b(*stack_b) == -1)
+		ft_put_it_back(stack_b);
 	while (ft_strlen_stack(*stack_b) > 0)
 		ft_pa(stack_a, stack_b); /// faux il faut bien le placer pour les 3 de stack_a
 }
@@ -226,14 +224,14 @@ int	ft_sorted_b(t_stack *stack_b)
 	}
 	return (1);
 }
-/*
+
 void	ft_put_it_back(t_stack **stack_b)
 {
 	t_stack	*min;
 	int		index_min;
 
-//	min = ft_min(stack_b);
-	//index_min = ft_get_index(min, *stack_b);
+	min = ft_min(stack_b);
+	index_min = ft_get_index(min, *stack_b);
 	if (index_min > ft_middle(*stack_b))
 	{
 		while (ft_get_index(min, *stack_b) != ft_strlen_stack(*stack_b))
@@ -244,22 +242,4 @@ void	ft_put_it_back(t_stack **stack_b)
 		while (ft_get_index(min, *stack_b) != ft_strlen_stack(*stack_b))
 			ft_rrb(stack_b);
 	}
-}*/
-/*
-t_stack	*ft_max(t_stack *stack)
-{
-	t_stack	*tmp;
-	t_stack	*max;
-
-	tmp = stack->next;
-	max->content = stack->content;
-	while (tmp != stack)
-	{
-		if (tmp->content > max->content)
-			max->content = tmp->content;
-		tmp = tmp->next;
-	}
-	if (tmp->content > max->content)
-		max->content = tmp->content;
-	return (max);
-}*/
+}

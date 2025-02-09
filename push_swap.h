@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ltcherep <ltcherep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:52:14 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/09 08:49:40 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/09 12:06:45 by ltcherep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
