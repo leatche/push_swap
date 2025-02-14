@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltcherep <ltcherep@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:52:14 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/09 12:06:45 by ltcherep         ###   ########.fr       */
+/*   Updated: 2025/02/14 20:16:17 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# define DEBUG 0
 
 # include <string.h>
 # include <stdlib.h>
@@ -109,7 +110,7 @@ int				ft_search_less_b(t_stack *number_chose, t_stack **stack_b);
 int				ft_search_less_a(t_stack *number_chose, t_stack **stack_a);
 int				is_minimum(t_stack *actual_number, t_stack	*where);
 int				is_maximum(t_stack *actual_number, t_stack	*where);
-int				ft_get_index(t_stack *tmp, t_stack *stack_a);
+int				ft_get_index(int nbr, t_stack *stack_a);
 void			ft_ra_or_rra(t_stack **stack_a);
 
 t_stack			*ft_stacklast(t_stack *lst);

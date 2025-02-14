@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 05:05:39 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/05 05:08:04 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/12 04:07:04 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	ft_min(t_stack **stack_a)
 		return (-1);
 	min = *stack_a;
 	tmp = (*stack_a)->next;
-	index = 0;
-	min_index = 0;
+	index = 1;
+	min_index = 1;
 	while (tmp != *stack_a)
 	{
 		index++;
