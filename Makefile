@@ -6,7 +6,7 @@
 #    By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/12 08:50:30 by tcherepoff        #+#    #+#              #
-#    Updated: 2025/02/09 08:32:50 by tcherepoff       ###   ########.fr        #
+#    Updated: 2025/02/16 17:36:40 by tcherepoff       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,12 @@ SRCS_ALGO =		algorithme/algorithm.c			\
 
 SRCS_UTILS =	utils/utils_a.c					\
 				utils/utils_min.c				\
+				utils/calcul.c					\
+				utils/count.c					\
+				utils/place.c					\
+				utils/stack.c					\
+				utils/utils_b.c					\
+				utils/where.c					\
 
 SRCS = $(SRCS_PARSING) $(SRCS_ACTIONS) $(SRCS_ALGO) $(SRCS_UTILS)
 
