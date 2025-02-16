@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ltcherep <ltcherep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 14:13:39 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/16 17:56:53 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/16 23:20:28 by ltcherep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	free_stack(t_stack *stack)
 	t_stack	*tmp;
 
 	if (stack == NULL)
-		return ;
+		return (-1);
 	current = stack;
 	while (current->next != stack)
 	{
