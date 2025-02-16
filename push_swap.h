@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:52:14 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/16 17:34:16 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/16 17:57:01 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void			ft_ss(t_stack **stack_a, t_stack **stack_b);
 t_stack			*ft_create_list(int argc, char **argv);
 int				ft_create_element(int nbr, t_stack **new_element);
 int				ft_add_new_element(int nbr, t_stack **stack_tmp);
-void			free_stack(t_stack *stack);
+int				free_stack(t_stack *stack);
 int				ft_add_to_parse_new_element(int nbr, t_stack **stack_tmp);
 void			ft_error(void);
 void			ft_letter(char **argv);
@@ -100,7 +100,8 @@ int				ft_count_bottom_of_top(t_stack *number_chose, t_stack *stack_a,
 					t_stack *stack_b);
 int				ft_count_top_of_bottom(t_stack *number_chose, t_stack *stack_a,
 					t_stack *stack_b);
-int				ft_count_bottom_of_bottom(t_stack *number_chose, t_stack *stack_a,
+int				ft_count_bottom_of_bottom(t_stack *number_chose,
+					t_stack *stack_a,
 					t_stack *stack_b);
 int				ft_strlen_stack(t_stack *stack);
 int				ft_middle(t_stack *stack);

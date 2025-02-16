@@ -6,11 +6,11 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 05:05:39 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/16 17:32:31 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/16 17:45:43 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 int	ft_min(t_stack **stack_a)
 {
@@ -18,7 +18,7 @@ int	ft_min(t_stack **stack_a)
 	t_stack	*min;
 	int		index;
 	int		min_index;
-	
+
 	if (!stack_a || !*stack_a)
 		return (-1);
 	min = *stack_a;
@@ -61,7 +61,7 @@ int	is_maximum(t_stack *actual_number, t_stack	*where)
 
 int	ft_strlen_stack(t_stack *stack)
 {
-	int	i;
+	int		i;
 	t_stack	*tmp;
 
 	if (!stack)
@@ -100,9 +100,9 @@ int	is_minimum(t_stack *actual_number, t_stack	*where)
 int	ft_valid_number(t_stack *tmp, t_stack *stack_a, t_stack *stack_b,
 	int middle)
 {
-	(void)stack_b;
-	int	indice;
+	int		indice;
 
+	(void)stack_b;
 	indice = ft_get_index(tmp->content, stack_a);
 	if (indice <= middle)
 		return (1);

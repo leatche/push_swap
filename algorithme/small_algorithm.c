@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:51:05 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/13 18:45:44 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/16 17:40:38 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,4 @@ void	ft_five_number(t_stack **stack_a, t_stack **stack_b)
 		ft_pa(stack_a, stack_b);
 	}
 	ft_ra_or_rra(stack_a);
-	// print_stack(*stack_a);
 }
-

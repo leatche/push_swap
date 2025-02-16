@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:22:41 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/05 04:36:38 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/16 17:39:51 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_p(t_stack **pile_source, t_stack **pile_dest)
 {
-	t_stack *dest;
+	t_stack	*dest;
 
 	if (!pile_source || *pile_source == NULL)
 		return ;
@@ -44,18 +44,13 @@ void	ft_pa(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_p(stack_b, stack_a);
 	ft_putstr_fd("pa\n", 1);
-	// print_stack(*stack_a);
-	// print_stack(*stack_b);
 }
 
 void	ft_pb(t_stack **stack_a, t_stack **stack_b)
-{	
+{
 	ft_p(stack_a, stack_b);
 	ft_putstr_fd("pb\n", 1);
-	// print_stack(*stack_a);
-	// print_stack(*stack_b);
 }
-
 
 int	ft_add_new_element(int nbr, t_stack **stack_tmp)
 {

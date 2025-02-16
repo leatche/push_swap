@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 16:20:35 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/16 17:32:21 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/16 17:42:07 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ void	ft_place(t_stack *tmp, t_stack **stack_a, t_stack **stack_b, int middle)
 
 void	ft_put_it_back(t_stack **stack_b)
 {
-	int		index_min;
-	
+	int	index_min;
+
 	index_min = ft_min(stack_b);
 	if (index_min < ft_middle(*stack_b))
 	{

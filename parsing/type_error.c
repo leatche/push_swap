@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 02:00:29 by ltcherep          #+#    #+#             */
-/*   Updated: 2025/02/01 19:19:17 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/16 17:58:55 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,10 @@ int	ft_check_letter_bad_position(char **argv)
 {
 	ft_letter(argv);
 	if (ft_check_bad_position(argv, 1, 0) == -1)
+	{
+		printf("Error: de caractere.\n");
 		return (-1);
+	}
 	return (0);
 }
 
@@ -88,13 +91,13 @@ int	ft_check_duplicate(t_stack *stack_a)
 		if (count == 0)
 		{
 			if (tmp->content == move->content)
-				return (0);
+				return (-1);
 			count++;
 		}
 		while (move && move->next != tmp->next)
 		{
 			if (tmp->content == move->content)
-				return (0);
+				return (-1);
 			move = move->next;
 		}
 		tmp = tmp->next;

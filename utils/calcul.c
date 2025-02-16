@@ -6,13 +6,13 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 17:23:06 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/16 17:23:47 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/16 17:43:35 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_abs(int a)
+int	ft_abs(int a)
 {
 	if (a < 0)
 		return (-a);
@@ -22,8 +22,8 @@ int ft_abs(int a)
 
 int	ft_middle(t_stack *stack)
 {
-	t_stack *tmp;
-	int	count;
+	t_stack	*tmp;
+	int		count;
 
 	tmp = stack->next;
 	count = 1;
@@ -38,7 +38,7 @@ int	ft_middle(t_stack *stack)
 
 int	ft_get_index(int nbr, t_stack *stack_a)
 {
-	int	i;
+	int		i;
 	t_stack	*tmp;
 
 	i = 1;

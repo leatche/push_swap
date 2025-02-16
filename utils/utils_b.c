@@ -6,16 +6,16 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 17:11:26 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/16 17:16:38 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/16 17:52:59 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 int	ft_sorted_b(t_stack **stack_b)
 {
-	int	i;
-	int	length;
+	int		i;
+	int		length;
 	t_stack	*tmp;
 
 	tmp = *stack_b;
@@ -34,7 +34,7 @@ int	ft_sorted_b(t_stack **stack_b)
 	return (1);
 }
 
-int ft_search_less_b(t_stack *number_chose, t_stack **stack_b)
+int	ft_search_less_b(t_stack *number_chose, t_stack **stack_b)
 {
 	t_stack	*tmp;
 	int		count;
@@ -59,7 +59,7 @@ int ft_search_less_b(t_stack *number_chose, t_stack **stack_b)
 
 int	ft_less_b( t_stack *number_chose, t_stack **stack_b)
 {
-	int	indice;
+	int		indice;
 	t_stack	*tmp_b;
 
 	indice = 0;
@@ -77,9 +77,9 @@ int	ft_less_b( t_stack *number_chose, t_stack **stack_b)
 int	ft_brave_b(t_stack **stack_b, t_stack *number_chose)
 {
 	t_stack	*tmp;
-	int	indice_min;
-	int	indice;
-	int	indice_min_tmp;
+	int		indice_min;
+	int		indice;
+	int		indice_min_tmp;
 
 	tmp = *stack_b;
 	indice_min = ft_min(stack_b);

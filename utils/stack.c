@@ -6,13 +6,13 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 17:25:11 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/16 17:25:26 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/16 17:53:54 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void print_stack(t_stack *stack)
+/*
+void	print_stack(t_stack *stack)
 {
 	t_stack *begin;
 	int		i;
@@ -29,6 +29,7 @@ void print_stack(t_stack *stack)
 	}
 	printf("\n");
 }
+*/
 
 t_stack	*ft_stacklast(t_stack *lst)
 {

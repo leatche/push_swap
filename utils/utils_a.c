@@ -6,13 +6,13 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 04:57:38 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/05 05:00:13 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/16 17:52:15 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
-int ft_search_less_a(t_stack *number_chose, t_stack **stack_a)
+int	ft_search_less_a(t_stack *number_chose, t_stack **stack_a)
 {
 	t_stack	*tmp;
 	int		count;
@@ -37,8 +37,8 @@ int ft_search_less_a(t_stack *number_chose, t_stack **stack_a)
 
 int	ft_sorted_a(t_stack **stack_a)
 {
-	int	i;
-	int	length;
+	int		i;
+	int		length;
 	t_stack	*tmp;
 
 	tmp = *stack_a;
@@ -60,9 +60,9 @@ int	ft_sorted_a(t_stack **stack_a)
 int	ft_brave_a(t_stack **stack_a, t_stack *number_chose)
 {
 	t_stack	*tmp;
-	int	indice_min;
-	int	indice;
-	int	indice_min_tmp;
+	int		indice_min;
+	int		indice;
+	int		indice_min_tmp;
 
 	tmp = *stack_a;
 	indice_min = ft_min(stack_a);
@@ -82,7 +82,7 @@ int	ft_brave_a(t_stack **stack_a, t_stack *number_chose)
 
 int	ft_less_a(t_stack *number_chose, t_stack **stack_a)
 {
-	int	indice;
+	int		indice;
 	t_stack	*tmp_a;
 
 	indice = 0;

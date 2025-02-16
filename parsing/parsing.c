@@ -6,7 +6,7 @@
 /*   By: tcherepoff <tcherepoff@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 14:13:39 by tcherepoff        #+#    #+#             */
-/*   Updated: 2025/02/12 16:56:01 by tcherepoff       ###   ########.fr       */
+/*   Updated: 2025/02/16 17:56:53 by tcherepoff       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	ft_add_to_parse_new_element(int nbr, t_stack **stack_tmp)
 	return (1);
 }
 
-void	free_stack(t_stack *stack)
+int	free_stack(t_stack *stack)
 {
 	t_stack	*current;
 	t_stack	*tmp;
@@ -89,4 +89,5 @@ void	free_stack(t_stack *stack)
 	}
 	free(current);
 	stack = NULL;
+	return (-1);
 }
